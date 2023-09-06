@@ -1,0 +1,32 @@
+
+<head>
+    
+    <title>ToDo App</title>
+</head>
+<script>
+    const parsedResp = (data)=>{
+        console.log(data)
+
+    }
+
+    const callbackFn = (resp)=>{
+        resp.json().then(parsedResp)
+
+    }
+
+      const onPress=()=>{
+        fetch("http://localhost:3000/todos",{
+            method:"GET"
+        }).then(callbackFn)
+
+      }
+</script>
+<body>
+    <input type="text">
+    <br>
+    Todo Description
+    <input type="text">
+    <br>
+    <button onclick="onPress()">send ToDo</button>
+</body>
+</html>

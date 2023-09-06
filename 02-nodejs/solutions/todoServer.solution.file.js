@@ -24,7 +24,8 @@ function removeAtIndex(arr, index) {
 app.get('/todos', (req, res) => {
   fs.readFile("todos.json", "utf8", (err, data) => {
     if (err) throw err;
-    res.json(JSON.parse(data));
+    var answer = JSON.parse(data)
+    res.json(answer);
   });
 });
 
@@ -72,4 +73,5 @@ app.use((req, res, next) => {
   res.status(404).send();
 });
 
-module.exports = app;
+app.listen(3000)
+// module.exports = app;
